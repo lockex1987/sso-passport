@@ -1,0 +1,11 @@
+h4 {
+    // font-weight: 500;
+    color: #17a2b8 !important; // giống .text-info
+    font-size: 1rem; // nhỏ lại
+}
+
+.form-control-max-width {
+    // Hiện .form-control đang có width là 100%, nên nhiều khi trông dài quá
+    // Giới hạn ngắn lại
+    max-width: 400px;
+}

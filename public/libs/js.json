@@ -1,0 +1,23 @@
+[
+  "noti",
+  "common-validation",
+  "datatable",
+  "jquery",
+  "popper",
+  "bootstrap",
+  "moment",
+  "daterangepicker",
+  "jqcloud",
+  "axios",
+  "highcharts-core",
+  "highcharts-exporting",
+  "highcharts-map",
+  "highcharts-map-vn",
+  "vue",
+  "vue-router",
+  "vuex",
+  "exceljs",
+  "summernote",
+  "summernote-vietnamese",
+  "nat-carousel"
+]

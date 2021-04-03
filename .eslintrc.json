@@ -1,0 +1,55 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:vue/essential",
+        "standard"
+    ],
+    "globals": {
+        "SSO_CONSUMER_DOMAIN": "readonly",
+        "SSO_PASSPORT_URL": "readonly",
+
+        "Vue": "readonly",
+        "Vuex": "readonly",
+        "VueRouter": "readonly",
+        "axios": "readonly",
+        "Highcharts": "readonly",
+        "$": "readonly",
+        "ExcelJS": "readonly",
+        "moment": "readonly",
+
+        "CV": "readonly",
+        "noti": "readonly",
+        "Datatable": "readonly",
+        "Pagi": "readonly",
+        "CommonUtils": "readonly"
+    },
+    
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "parser": "babel-eslint",
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue"
+    ],
+
+    "rules": {
+        "semi": ["error", "always"],
+        "indent": ["error", 4],
+        "space-before-function-paren": ["error", {
+            "anonymous": "always",
+            "named": "never",
+            "asyncArrow": "always"
+        }],
+
+        "eqeqeq": "off",
+        "no-new": "off",
+        "no-multiple-empty-lines": "off",
+        "vue/require-v-for-key": "off",
+        "vue/require-valid-default-prop": "off"
+    }
+}
