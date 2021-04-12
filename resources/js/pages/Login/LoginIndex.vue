@@ -1,45 +1,49 @@
 <template>
     <div class="login-page d-flex justify-content-center align-items-center">
         <div class="login-box w-100 m-2 rounded py-5 px-4">
-            <form ref="frm" @submit.prevent="processLogin()">
+            <form ref="frm"
+                @submit.prevent="processLogin()">
                 <div class="mb-3 text-center text-danger"
-                        v-if="errorMessage">
+                    v-if="errorMessage">
                     {{errorMessage}}
                 </div>
 
                 <div class="form-group validate-container">
                     <input v-model.trim="username"
-                            type="text"
-                            class="form-control"
-                            placeholder="Tên đăng nhập"
-                            data-validation="required"
-                            autofocus
-                            autocomplete="username">
+                        type="text"
+                        class="form-control"
+                        placeholder="Tên đăng nhập"
+                        data-validation="required"
+                        autofocus
+                        autocomplete="username" />
                 </div>
 
                 <div class="form-group validate-container">
                     <div class="input-group">
                         <input v-model.trim="password"
-                                :type="showPassword ? 'text' : 'password'"
-                                class="form-control"
-                                placeholder="Mật khẩu"
-                                data-validation="required"
-                                autocomplete="current-password">
+                            :type="showPassword ? 'text' : 'password'"
+                            class="form-control"
+                            placeholder="Mật khẩu"
+                            data-validation="required"
+                            autocomplete="current-password">
 
                         <div class="input-group-append">
                             <span class="input-group-text cursor-pointer"
-                                    @click="togglePassword()"
-                                    :title="showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
-                                <i class="la" :class="[showPassword ? 'la-eye' : 'la-eye-slash']"></i>
+                                @click="togglePassword()"
+                                :title="showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
+                                <i class="la"
+                                    :class="[showPassword ? 'la-eye' : 'la-eye-slash']"></i>
                             </span>
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <button class="btn btn-primary btn-block btn-ripple" type="submit">
+                    <button class="btn btn-primary btn-block btn-ripple"
+                        type="submit">
                         Đăng nhập
-                        <span class="spinner-border spinner-border-sm" v-show="isProcessing"></span>
+                        <span class="spinner-border spinner-border-sm"
+                            v-show="isProcessing"></span>
                     </button>
                 </div>
 

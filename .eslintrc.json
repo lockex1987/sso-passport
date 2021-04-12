@@ -1,16 +1,13 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es2021": true
     },
     "extends": [
         "plugin:vue/essential",
         "standard"
     ],
     "globals": {
-        "SSO_CONSUMER_DOMAIN": "readonly",
-        "SSO_PASSPORT_URL": "readonly",
-
         "Vue": "readonly",
         "Vuex": "readonly",
         "VueRouter": "readonly",
@@ -24,19 +21,17 @@
         "noti": "readonly",
         "Datatable": "readonly",
         "Pagi": "readonly",
-        "CommonUtils": "readonly"
+        "CommonUtils": "readonly",
+        "SSO_CONSUMER_DOMAIN": "readonly",
+        "SSO_PASSPORT_URL": "readonly",
     },
-    
-    "parser": "vue-eslint-parser",
     "parserOptions": {
-        "parser": "babel-eslint",
-        "ecmaVersion": 2018,
+        "ecmaVersion": 12,
         "sourceType": "module"
     },
     "plugins": [
         "vue"
     ],
-
     "rules": {
         "semi": ["error", "always"],
         "indent": ["error", 4],
@@ -45,10 +40,10 @@
             "named": "never",
             "asyncArrow": "always"
         }],
-
         "eqeqeq": "off",
         "no-new": "off",
         "no-multiple-empty-lines": "off",
+        "operator-linebreak": ["error", "before"],
         "vue/require-v-for-key": "off",
         "vue/require-valid-default-prop": "off"
     }

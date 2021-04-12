@@ -1,4 +1,10 @@
 export default {
+    computed: {
+        ...Vuex.mapState({
+            loginUser: state => state.auth.user
+        })
+    },
+
     methods: {
         /**
          * Hiện thị đối tượng moment theo định dạng ngày tháng

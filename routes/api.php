@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+// TODO: Sử dụng https://github.com/spatie/laravel-route-attributes
 
 // Tối đa nhập sai 5 lần trong 1 phút
 // Nếu vi phạm thì hạn chế trong 2 phút
