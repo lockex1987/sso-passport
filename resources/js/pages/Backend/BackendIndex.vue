@@ -7,7 +7,7 @@
         <div class="flex-grow-1 d-flex flex-column">
             <top-header />
 
-            <div class="adjust-height overflow-y-auto overflow-x-hidden custom-scrollbar pb-3">
+            <div class="adjust-height overflow-y-auto overflow-x-hidden custom-scrollbar px-3 pb-3">
                 <router-view />
             </div>
         </div>

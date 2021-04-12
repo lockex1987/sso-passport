@@ -95,6 +95,7 @@ export default {
     }
 
     .wrapper {
+        // Phải cố định cả chiều rộng của của wrapper nếu không khi lef-aside co lại thì chữ trong đó cũng bị co lại
         width: 230px;
     }
 

@@ -54,7 +54,7 @@ export default {
     .line {
         height: 2px;
         width: $lineWidth;
-        background-color: #444;
+        background-color: #6c757d; // giống .text-muted
         position: relative;
         left: calc(50% - #{$lineWidth / 2});
         transition: width 0.3s ease-in-out;

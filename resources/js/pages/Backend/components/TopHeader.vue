@@ -6,7 +6,7 @@
             <div class="font-size-1.25 text-uppercase">
                 <router-link :to="{ name: 'dashboard' }"
                     title="Về trang chủ"
-                    class="text-white text-decoration-none">
+                    class="text-info text-decoration-none">
                     Hệ thống SSO
                 </router-link>
             </div>
@@ -29,10 +29,5 @@ export default {
 <style scoped lang="scss">
 .top-header {
     height: 70px;
-
-    .logo {
-        width: 50px;
-        height: 50px;
-    }
 }
 </style>
