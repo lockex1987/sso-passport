@@ -1,6 +1,8 @@
 <template>
-    <div class="lef-aside">
-        <div class="wrapper py-2 h-100">
+    <div class="lef-aside"
+        :class="{ 'open': showLeftAside }">
+        <div class="wrapper py-2">
+            <!-- Người dùng đang đăng nhập -->
             <div class="text-center pt-3"
                 v-if="loginUser">
                 <img class="logo rounded-circle object-fit-cover"
@@ -14,8 +16,7 @@
 
             <!-- Menu đầy đủ -->
             <div class="menu mt-5">
-                <ul class="menu"
-                    v-show="!filterProjectText">
+                <ul>
                     <li>
                         <router-link :to="{ name: 'dashboard' }"
                             class="text-decoration-none">
@@ -70,17 +71,32 @@ export default {
     mixins: [
         // Hàm processLogout
         logoutMixin
-    ]
+    ],
+
+    computed: {
+        ...Vuex.mapState({
+            showLeftAside: state => state.layout.showLeftAside
+        })
+    }
 };
 </script>
 
 
 <style scoped lang="scss">
 .lef-aside {
-    flex-shrink: 0;
     background: rgba(110, 174, 207, 0.15);
     border-top-right-radius: 0.25rem;
-    width: 230px;
+    transition: width 0.3s ease-in-out;
+    width: 0px;
+    min-height: 100%;
+
+    &.open {
+        width: 230px;
+    }
+
+    .wrapper {
+        width: 230px;
+    }
 
     .logo {
         width: 50px;
