@@ -1,10 +1,8 @@
 <template>
-    <div class="d-flex">
-        <div class="vh-100 overflow-y-auto overflow-x-hidden custom-scrollbar flex-shrink-0">
-            <left-aside />
-        </div>
+    <div class="d-md-flex">
+        <left-aside />
 
-        <div class="flex-grow-1 d-flex flex-column">
+        <div class="flex-grow-1">
             <top-header />
 
             <div class="adjust-height overflow-y-auto overflow-x-hidden custom-scrollbar px-3 pb-3">
