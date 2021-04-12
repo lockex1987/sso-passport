@@ -4,8 +4,7 @@ const path = require('path');
 
 mix.js('resources/js/script.js', 'public/js')
     .sass('resources/sass/style.scss', 'public/css')
-    .sourceMaps(true, 'source-map')
-    ;
+    .sourceMaps(true, 'source-map');
 
 if (mix.inProduction()) {
     mix.version();

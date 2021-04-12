@@ -6,6 +6,7 @@ use Closure;
 use Carbon\Carbon;
 use App\Cache\CustomRateLimiter;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
 
 class CustomThrottleRequests
 {
@@ -40,6 +41,8 @@ class CustomThrottleRequests
      */
     public function handle($request, Closure $next, $maxAttempts, $decayMinutes, $blockedMinutes, $keyPrefix)
     {
+        Log::info("$maxAttempts, $decayMinutes, $blockedMinutes, $keyPrefix");
+
         // Khóa để kiểm tra, lưu vào cache
         // \Log::info($keyPrefix);
         $key = $keyPrefix . $request->fingerprint();

@@ -6,9 +6,9 @@ use App\Models\User;
 use App\Models\RegisterUser;
 use App\Http\Controllers\Controller;
 use App\Mail\Register;
-use Mail;
-use Str;
-use Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

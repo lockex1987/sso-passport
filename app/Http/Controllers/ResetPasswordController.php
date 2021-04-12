@@ -7,7 +7,7 @@ use App\Models\PasswordReset;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 
 
 class ResetPasswordController extends Controller

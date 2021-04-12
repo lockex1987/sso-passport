@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Cache\Auth;
 use App\Models\User;
 
-
 class AppController extends Controller
 {
     /**

@@ -65,7 +65,7 @@ class CustomRateLimiter
      * @param  int  $decaySeconds
      * @return int
      */
-    public function hit($key, $decaySeconds = 60, $blockedSeconds)
+    public function hit($key, $decaySeconds = 60, $blockedSeconds = 360)
     {
         $this->cache->add(
             $key.':timer', $this->availableAt($blockedSeconds), $blockedSeconds

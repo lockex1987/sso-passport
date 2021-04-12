@@ -7,8 +7,8 @@ use App\Models\User;
 use App\Models\PasswordReset;
 use App\Http\Controllers\Controller;
 use App\Mail\ResetPassword;
-use Mail;
-use Str;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Carbon\Carbon;
 
 /**

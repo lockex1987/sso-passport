@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cache\Auth;
 use App\Models\SystemLog;
-use Log;
+use Illuminate\Support\Facades\Log;
 
 
 class LoginLogController extends Controller

@@ -3,10 +3,13 @@
 namespace App\Cache;
 
 use Illuminate\Support\Facades\Redis;
-use Str;
+use Illuminate\Support\Str;
 
 class Auth
 {
+    /**
+     * Lấy đối tượng người dùng hiện tại.
+     */
     public static function user()
     {
         $request = request();
@@ -22,6 +25,9 @@ class Auth
         return $user;
     }
 
+    /**
+     * Lưu người dùng vào Redis.
+     */
     public static function saveUser($user)
     {
         $token = Str::uuid() . Str::random(100);
@@ -39,6 +45,9 @@ class Auth
         return $token;
     }
 
+    /**
+     * Loại bỏ người dùng.
+     */
     public static function removeUser()
     {
         $request = request();
@@ -47,6 +56,9 @@ class Auth
         Redis::del($redisKey);
     }
 
+    /**
+     * Tạo login ticket.
+     */
     public static function generateLoginTicket($user)
     {
         $ticket = Str::uuid() . Str::random(100);
@@ -61,6 +73,9 @@ class Auth
         return $ticket;
     }
 
+    /**
+     * Lấy người dùng từ ticket.
+     */
     public static function getUserFromLoginTicket($ticket)
     {
         $redisKey = self::getTicketRedisKey($ticket);
@@ -77,6 +92,9 @@ class Auth
 		return $user;
     }
 
+    /**
+     * Lấy token trong request.
+     */
     public static function getToken()
     {
         $request = request();
@@ -85,6 +103,7 @@ class Auth
     }
 
     /**
+     * Lấy key trên Redis của token.
      * Đặt tên Redis key dạng xxx:yyy để
      * ở Redis Desktop Manager hiển thị dạng thư mục.
      */
@@ -93,6 +112,9 @@ class Auth
         return 'sso_token:' . $token;
     }
 
+    /**
+     * Lấy key trên Redis của ticket.
+     */
     private static function getTicketRedisKey($ticket)
     {
         return 'sso_ticket:' . $ticket;

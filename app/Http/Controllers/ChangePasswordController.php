@@ -7,8 +7,8 @@ use App\Cache\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Mail\ChangePassword;
-use Mail;
-use Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 
 
 class ChangePasswordController extends Controller

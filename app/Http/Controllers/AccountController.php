@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cache\Auth;
 use App\Models\User;
-use Illuminate\Http\Request;
-
 
 class AccountController extends Controller
 {

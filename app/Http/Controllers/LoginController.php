@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\App;
 use App\Models\SystemLog;
-use Hash;
-
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Controller này quản lý việc đăng nhập của người dùng.
@@ -50,9 +49,9 @@ class LoginController extends Controller
 
         // Lưu thông tin người dùng
         $token = Auth::saveUser($user);
-		
-		// Lưu log
-		$this->insertLoginLog($user->id);
+        
+        // Lưu log
+        $this->insertLoginLog($user->id);
         
         // Nếu không nhập mã ứng dụng khác thì trở về trang chủ luôn
         $app = $request->input('app');
@@ -82,8 +81,8 @@ class LoginController extends Controller
             ];
         }
 
-		return $user;
-	}
+        return $user;
+    }
 
     /**
      * Lấy thông tin người dùng từ token truyền vào.
@@ -169,7 +168,7 @@ class LoginController extends Controller
         $loginLog = new SystemLog();
         $loginLog->user_id = $userId;
         $loginLog->ip = $request->ip();
-        $loginLog->user_agent = $request->header('User-Agent');;
+        $loginLog->user_agent = $request->header('User-Agent');
         // TODO: Parse user agent thành browser (Firefox, Chrome, Edge, Chromium,...) và os (Windows, Ubuntu, Linux,...)
         $loginLog->created_at = now();
         $loginLog->type = 'login';
