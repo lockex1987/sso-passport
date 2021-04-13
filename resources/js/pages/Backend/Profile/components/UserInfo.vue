@@ -4,7 +4,7 @@
             <div class="pb-4 mb-4 mt-5 text-center">
                 <label class="d-block mb-0 cursor-pointer">
                     <img class="rounded-circle avatar object-fit-cover"
-                        :src="'/storage/avatars/' + user.avatar"
+                        :src="'/storage/avatars/' + loginUser.avatar"
                         title="Đổi ảnh đại diện"
                         onerror="this.src = '/images/user-avatar.png'"
                         ref="theImage" />
@@ -27,7 +27,7 @@
                 Tài khoản
             </label>
             <div class="text-info">
-                {{user.username}}
+                {{loginUser.username}}
             </div>
         </div>
 
@@ -79,11 +79,7 @@ export default {
         };
     },
 
-    computed: {
-        ...Vuex.mapState({
-            user: state => state.auth.user
-        })
-    },
+    
 
     mounted() {
         this.initInfo();
@@ -91,8 +87,8 @@ export default {
 
     methods: {
         initInfo() {
-            this.fullName = this.user.full_name;
-            this.email = this.user.email;
+            this.fullName = this.loginUser.full_name;
+            this.email = this.loginUser.email;
             this.avatar = null;
             this.$refs.avatarFile.value = '';
         },
@@ -117,10 +113,10 @@ export default {
             const { data } = await axios.post('/user', params);
             if (data.code == 0) {
                 // Cập nhật lại vuex (thông tin email)
-                this.user.email = this.email;
-                this.user.full_name = this.fullName;
-                this.user.avatar = data.avatar;
-                this.$store.commit('auth/setUser', this.user);
+                this.loginUser.email = this.email;
+                this.loginUser.full_name = this.fullName;
+                this.loginUser.avatar = data.avatar;
+                this.$store.commit('auth/setUser', this.loginUser);
 
                 this.initInfo();
 
@@ -130,6 +126,9 @@ export default {
             }
         },
 
+        /**
+         * Xem trước ảnh avatar khi chọn file ảnh.
+         */
         previewAvatar() {
             this.avatar = this.$refs.avatarFile.files[0];
             this.$refs.theImage.src = URL.createObjectURL(this.avatar);

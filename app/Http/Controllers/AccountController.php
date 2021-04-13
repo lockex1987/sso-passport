@@ -23,7 +23,7 @@ class AccountController extends Controller
         $request->validate([
             'fullName' => 'required',
             'email' => 'required|email',
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         $fullName = $request->fullName;
@@ -40,7 +40,7 @@ class AccountController extends Controller
             }
 
             $avatarName = $user->id . '_avatar_' . time() . '.' . $request->avatar->getClientOriginalExtension();
-            $request->avatar->storeAs('avatars', $avatarName);
+            $request->avatar->storeAs('avatars', $avatarName, 'public');
 
             $user->avatar = $avatarName;
         }
