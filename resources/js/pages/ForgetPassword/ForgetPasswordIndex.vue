@@ -8,16 +8,18 @@
             <form @submit.prevent="sendResetToken()">
                 <div class="mb-3 validate-container">
                     <input type="text"
-                            v-model.trim="email"
-                            class="form-control"
-                            placeholder="Email"
-                            data-validation="required|email"/>
+                        v-model.trim="email"
+                        class="form-control"
+                        placeholder="Email"
+                        data-validation="required|email" />
                 </div>
 
                 <div class="mb-3 text-center">
-                    <button class="btn btn-primary btn-ripple btn-block" type="submit">
+                    <button class="btn btn-primary btn-ripple btn-block"
+                        type="submit">
                         Lấy mã bí mật
-                        <span class="spinner-border spinner-border-sm" v-show="isProcessing"></span>
+                        <span class="spinner-border spinner-border-sm"
+                            v-show="isProcessing"></span>
                     </button>
                 </div>
 

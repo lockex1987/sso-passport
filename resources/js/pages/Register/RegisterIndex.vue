@@ -5,56 +5,60 @@
                 Đăng ký
             </div>
 
-            <form @submit.prevent="sendResetToken()" novalidate>
+            <form @submit.prevent="sendResetToken()"
+                novalidate>
                 <div class="mb-3 validate-container">
                     <input type="text"
-                            placeholder="Tên đăng nhập"
-                            v-model.trim="username"
-                            class="form-control"
-                            data-validation="required|minLength:4|maxLength:50"
-                            data-validation-regex="^[a-zA-Z0-9_\.]+$"
-                            data-validation-regex-message="Tên tài khoản là ký tự tiếng Việt không dấu, chữ số (a-z, A-Z, 0-9), không chứa dấu cách, có thể chứa ký tự đặc biệt là gạch dưới (_) hoặc dấu chấm (.)"/>
+                        placeholder="Tên đăng nhập"
+                        v-model.trim="username"
+                        class="form-control"
+                        data-validation="required|minLength:4|maxLength:50"
+                        data-validation-regex="^[a-zA-Z0-9_\.]+$"
+                        data-validation-regex-message="Tên tài khoản là ký tự tiếng Việt không dấu, chữ số (a-z, A-Z, 0-9), không chứa dấu cách, có thể chứa ký tự đặc biệt là gạch dưới (_) hoặc dấu chấm (.)" />
                 </div>
 
                 <div class="mb-3 validate-container">
                     <input type="text"
-                            placeholder="Tên hiển thị"
-                            v-model.trim="fullName"
-                            class="form-control"
-                            data-validation="required|maxLength:100"/>
+                        placeholder="Tên hiển thị"
+                        v-model.trim="fullName"
+                        class="form-control"
+                        data-validation="required|maxLength:100" />
                 </div>
 
                 <div class="mb-3 validate-container">
                     <input type="text"
-                            placeholder="Email"
-                            v-model.trim="email"
-                            class="form-control"
-                            data-validation="required|email"/>
+                        placeholder="Email"
+                        v-model.trim="email"
+                        class="form-control"
+                        data-validation="required|email" />
                 </div>
 
                 <div class="mb-3 validate-container">
                     <div class="input-group">
                         <input v-model.trim="password"
-                                :type="showPassword ? 'text' : 'password'"
-                                class="form-control"
-                                placeholder="Mật khẩu"
-                                data-validation="required|password|passwordStrong|maxLength:50"
-                                autocomplete="new-password">
+                            :type="showPassword ? 'text' : 'password'"
+                            class="form-control"
+                            placeholder="Mật khẩu"
+                            data-validation="required|password|passwordStrong|maxLength:50"
+                            autocomplete="new-password">
 
                         <div class="input-group-append">
                             <span class="input-group-text cursor-pointer"
-                                    @click="togglePassword()"
-                                    :title="showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
-                                <i class="la" :class="[showPassword ? 'la-eye' : 'la-eye-slash']"></i>
+                                @click="togglePassword()"
+                                :title="showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
+                                <i class="la"
+                                    :class="[showPassword ? 'la-eye' : 'la-eye-slash']"></i>
                             </span>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center">
-                    <button class="btn btn-primary btn-ripple btn-block" type="submit">
+                    <button class="btn btn-primary btn-ripple btn-block"
+                        type="submit">
                         Đăng ký
-                        <span class="spinner-border spinner-border-sm" v-show="isProcessing"></span>
+                        <span class="spinner-border spinner-border-sm"
+                            v-show="isProcessing"></span>
                     </button>
                 </div>
             </form>

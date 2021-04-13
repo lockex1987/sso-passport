@@ -4,16 +4,16 @@
             <div class="pb-4 mb-4 mt-5 text-center">
                 <label class="d-block mb-0 cursor-pointer">
                     <img class="rounded-circle avatar object-fit-cover"
-                            :src="'/storage/avatars/' + user.avatar"
-                            title="Đổi ảnh đại diện"
-                            onerror="this.src = '/images/user-avatar.png'"
-                            ref="theImage"/>
+                        :src="'/storage/avatars/' + user.avatar"
+                        title="Đổi ảnh đại diện"
+                        onerror="this.src = '/images/user-avatar.png'"
+                        ref="theImage" />
 
                     <input type="file"
-                            ref="avatarFile"
-                            @change="previewAvatar()"
-                            accept="image/*,.png,.jpeg,.jpg,.gif;capture=camera"
-                            class="d-none">
+                        ref="avatarFile"
+                        @change="previewAvatar()"
+                        accept="image/*,.png,.jpeg,.jpg,.gif;capture=camera"
+                        class="d-none">
                 </label>
 
                 <div class="text-muted font-size-0.75 mt-3">
@@ -37,9 +37,9 @@
             </label>
 
             <input type="text"
-                    v-model.trim="fullName"
-                    class="form-control form-control-max-width"
-                    data-validation="required"/>
+                v-model.trim="fullName"
+                class="form-control form-control-max-width"
+                data-validation="required" />
         </div>
 
         <div class="form-group validate-container mt-4">
@@ -48,18 +48,20 @@
             </label>
 
             <input type="text"
-                    v-model.trim="email"
-                    class="form-control form-control-max-width"
-                    data-validation="required|email"/>
+                v-model.trim="email"
+                class="form-control form-control-max-width"
+                data-validation="required|email" />
         </div>
 
         <div class="mt-2">
-            <button class="btn btn-primary" type="submit">
+            <button class="btn btn-primary"
+                type="submit">
                 Lưu thông tin
             </button>
 
-            <button class="btn btn-outline-secondary" type="button"
-                    @click="initInfo()">
+            <button class="btn btn-outline-secondary"
+                type="button"
+                @click="initInfo()">
                 Hủy
             </button>
         </div>

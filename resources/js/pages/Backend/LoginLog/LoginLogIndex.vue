@@ -1,15 +1,15 @@
 <template>
     <div>
-        <the-breadcrumb :paths="['Lịch sử đăng nhập']"/>
+        <top-header :paths="['Lịch sử đăng nhập']" />
 
         <div class="datatable-wrapper">
             <table class="table table-bordered"
-                    ref="searchResult"
-                    v-show="logList.length > 0">
+                ref="searchResult"
+                v-show="logList.length > 0">
                 <thead>
                     <tr>
                         <th class="text-center"
-                                style="width: 50px">
+                            style="width: 50px">
                             #
                         </th>
                         <th class="text-center">
@@ -26,7 +26,7 @@
 
                 <tbody>
                     <tr v-for="log in logList"
-                            :key="log.id">
+                        :key="log.id">
                         <td class="text-center">
                             {{log.stt}}
                         </td>

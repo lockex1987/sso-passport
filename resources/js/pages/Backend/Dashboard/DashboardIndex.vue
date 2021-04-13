@@ -1,18 +1,13 @@
 <template>
-    <div class="" v-if="user">
-        {{user.username}}
+    <div class="pt-3"
+        v-if="loginUser">
+        {{loginUser.username}}
     </div>
 </template>
 
 
 <script>
 export default {
-    computed: {
-        ...Vuex.mapState({
-            user: state => state.auth.user
-        })
-    },
-
     data() {
         return {
 
@@ -22,7 +17,6 @@ export default {
     mounted() {
 
     },
-
 
     methods: {
 

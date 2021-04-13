@@ -10,12 +10,13 @@
             </div>
 
             <form @submit.prevent="resetPassword()">
-                <div class="mb-3 validate-container" v-show="!autoFillToken">
+                <div class="mb-3 validate-container"
+                    v-show="!autoFillToken">
                     <input type="text"
-                            placeholder="Mã bí mật"
-                            v-model.trim="resetToken"
-                            class="form-control"
-                            data-validation="required"/>
+                        placeholder="Mã bí mật"
+                        v-model.trim="resetToken"
+                        class="form-control"
+                        data-validation="required" />
                     <small class="form-text text-muted">
                         Mã bí mật được gửi đến email của bạn
                     </small>
@@ -24,24 +25,26 @@
                 <div class="mb-3 validate-container">
                     <div class="input-group">
                         <input v-model.trim="newPassword"
-                                :type="showNewPassword ? 'text' : 'password'"
-                                class="form-control"
-                                placeholder="Mật khẩu mới"
-                                data-validation="required|password|passwordStrong|maxLength:50"
-                                autocomplete="new-password">
+                            :type="showNewPassword ? 'text' : 'password'"
+                            class="form-control"
+                            placeholder="Mật khẩu mới"
+                            data-validation="required|password|passwordStrong|maxLength:50"
+                            autocomplete="new-password">
 
                         <div class="input-group-append">
                             <span class="input-group-text cursor-pointer"
-                                    @click="toggleNewPassword()"
-                                    :title="showNewPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
-                                <i class="la" :class="[showNewPassword ? 'la-eye' : 'la-eye-slash']"></i>
+                                @click="toggleNewPassword()"
+                                :title="showNewPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
+                                <i class="la"
+                                    :class="[showNewPassword ? 'la-eye' : 'la-eye-slash']"></i>
                             </span>
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-3 text-center">
-                    <button class="btn btn-primary btn-ripple btn-block" type="submit">
+                    <button class="btn btn-primary btn-ripple btn-block"
+                        type="submit">
                         Đặt lại mật khẩu
                     </button>
                 </div>

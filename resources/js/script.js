@@ -1,10 +1,10 @@
-import './plugins';
-import './components';
+import './plugins/index.js';
+import './components/index.js';
 
-import mixin from './mixin';
-import router from './router/index';
-import store from './store/index';
-import App from './App';
+import mixin from './mixin/index.js';
+import router from './router/index.js';
+import store from './store/index.js';
+import App from './App.vue';
 
 Vue.mixin(mixin);
 

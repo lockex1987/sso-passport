@@ -9,8 +9,8 @@
 
 
 <style scoped lang="scss">
-    .not-found-page {
-        min-height: 100vh;
-        font-size: 48px;
-    }
+.not-found-page {
+    min-height: 100vh;
+    font-size: 48px;
+}
 </style>

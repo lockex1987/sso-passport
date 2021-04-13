@@ -7,19 +7,20 @@
 
             <form @submit.prevent="verifyEmail()">
                 <div class="mb-3 validate-container"
-                        v-show="!autoFillToken">
+                    v-show="!autoFillToken">
                     <input type="text"
-                            placeholder="Mã xác nhận"
-                            v-model.trim="verifyToken"
-                            class="form-control"
-                            data-validation="required"/>
+                        placeholder="Mã xác nhận"
+                        v-model.trim="verifyToken"
+                        class="form-control"
+                        data-validation="required" />
                     <small class="form-text text-muted">
                         Mã xác nhận được gửi đến email của bạn
                     </small>
                 </div>
 
                 <div class="mt-3 text-center">
-                    <button class="btn btn-primary btn-ripple btn-block" type="submit">
+                    <button class="btn btn-primary btn-ripple btn-block"
+                        type="submit">
                         Xác nhận
                     </button>
                 </div>

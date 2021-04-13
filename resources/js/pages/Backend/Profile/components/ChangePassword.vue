@@ -7,17 +7,18 @@
 
             <div class="input-group">
                 <input v-model.trim="oldPassword"
-                        :type="showOldPassword ? 'text' : 'password'"
-                        class="form-control form-control-max-width"
-                        placeholder="Mật khẩu cũ"
-                        data-validation="required|minLength:6|maxLength:50"
-                        autocomplete="new-password">
+                    :type="showOldPassword ? 'text' : 'password'"
+                    class="form-control form-control-max-width"
+                    placeholder="Mật khẩu cũ"
+                    data-validation="required|minLength:6|maxLength:50"
+                    autocomplete="new-password">
 
                 <div class="input-group-append">
                     <span class="input-group-text cursor-pointer"
-                            @click="toggleOldPassword()"
-                            :title="showOldPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
-                        <i class="la" :class="[showOldPassword ? 'la-eye' : 'la-eye-slash']"></i>
+                        @click="toggleOldPassword()"
+                        :title="showOldPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
+                        <i class="la"
+                            :class="[showOldPassword ? 'la-eye' : 'la-eye-slash']"></i>
                     </span>
                 </div>
             </div>
@@ -30,29 +31,34 @@
 
             <div class="input-group">
                 <input v-model.trim="newPassword"
-                        :type="showNewPassword ? 'text' : 'password'"
-                        class="form-control form-control-max-width"
-                        placeholder="Mật khẩu mới"
-                        data-validation="required|password|passwordStrong|maxLength:50"
-                        autocomplete="new-password">
+                    :type="showNewPassword ? 'text' : 'password'"
+                    class="form-control form-control-max-width"
+                    placeholder="Mật khẩu mới"
+                    data-validation="required|password|passwordStrong|maxLength:50"
+                    autocomplete="new-password">
 
                 <div class="input-group-append">
                     <span class="input-group-text cursor-pointer"
-                            @click="toggleNewPassword()"
-                            :title="showNewPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
-                        <i class="la" :class="[showNewPassword ? 'la-eye' : 'la-eye-slash']"></i>
+                        @click="toggleNewPassword()"
+                        :title="showNewPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'">
+                        <i class="la"
+                            :class="[showNewPassword ? 'la-eye' : 'la-eye-slash']"></i>
                     </span>
                 </div>
             </div>
         </div>
 
         <div class="mt-2">
-            <button class="btn btn-primary btn-ripple" type="submit">
+            <button class="btn btn-primary btn-ripple"
+                type="submit">
                 Đổi mật khẩu
-                <span class="spinner-border spinner-border-sm" v-show="isProcessing"></span>
+                <span class="spinner-border spinner-border-sm"
+                    v-show="isProcessing"></span>
             </button>
 
-            <button class="btn btn-outline-secondary btn-ripple" type="button" @click="cancelForm()">
+            <button class="btn btn-outline-secondary btn-ripple"
+                type="button"
+                @click="cancelForm()">
                 Hủy
             </button>
         </div>
