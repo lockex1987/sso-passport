@@ -1,4 +1,4 @@
-import store from '../store';
+import store from '../store/index.js';
 
 
 /**
@@ -11,6 +11,7 @@ export default async (to, from, next) => {
     const path = to.path;
     const shouldLogout = to.query.logout;
 
+    // Nếu là link logout thì tiếp tục luôn
     if (shouldLogout) {
         next();
         return;
@@ -37,10 +38,10 @@ export default async (to, from, next) => {
 
     // Kiểm tra các đường dẫn
     if (user) {
-        // Nếu người dùng đã đăng nhập thì chuyển đến trang Dashboard
+        // Nếu người dùng đã đăng nhập thì chuyển đến trang mặc định
         if (path == '/' || path == '/login') {
             next({
-                name: 'dashboard'
+                name: 'profile'
             });
             return;
         }

@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="updateInfo()">
-        <div style="max-width: 300px">
+        <div class="form-control-max-width">
             <div class="pb-4 mb-4 mt-5 text-center">
                 <label class="d-block mb-0 cursor-pointer">
                     <img class="rounded-circle avatar object-fit-cover"

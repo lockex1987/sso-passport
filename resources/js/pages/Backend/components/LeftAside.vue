@@ -21,14 +21,6 @@
             <div class="menu mt-5">
                 <ul>
                     <li>
-                        <router-link :to="{ name: 'dashboard' }"
-                            class="text-decoration-none sidebar-closer">
-                            <i class="la la-dashboard font-size-1.25 mr-2"></i>
-                            Dashboard
-                        </router-link>
-                    </li>
-
-                    <li>
                         <router-link :to="{ name: 'profile' }"
                             class="text-decoration-none sidebar-closer">
                             <i class="la la-user font-size-1.25 mr-2"></i>

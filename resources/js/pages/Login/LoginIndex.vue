@@ -1,5 +1,5 @@
 <template>
-    <div class="login-page d-flex justify-content-center align-items-center">
+    <div class="login-page min-vh-100 d-flex justify-content-center align-items-center">
         <div class="login-box w-100 m-2 rounded py-5 px-4">
             <form ref="frm"
                 @submit.prevent="processLogin()">
@@ -77,8 +77,9 @@ export default {
             isProcessing: false,
             // Thông báo lỗi
             errorMessage: '',
-            // Tên đăng nhập và mật khẩu
+            // Tên đăng nhập
             username: '',
+            // Mật khẩu
             password: '',
             // Có hiển thị password hay không
             showPassword: false,
@@ -92,6 +93,7 @@ export default {
     },
 
     mounted() {
+        // Nếu là link logout (có tham số logout=) thì thực hiện logout
         if (this.$route.query.logout) {
             this.processLogout(this.app);
         }
@@ -139,9 +141,9 @@ export default {
                     const user = data.user;
                     this.$store.commit('auth/setUser', user);
 
-                    // Chuyển đến trang dashboard
+                    // Chuyển đến trang mặc định
                     this.$router.push({
-                        name: 'dashboard'
+                        name: 'profile'
                     });
                 } else {
                     window.location = data.redirectUrl;
@@ -160,7 +162,7 @@ export default {
         },
 
         /**
-         * Ẩn/hiện password.
+         * Ẩn / hiện password.
          */
         togglePassword() {
             this.showPassword = !this.showPassword;
@@ -172,6 +174,12 @@ export default {
 
 <style scoped lang="scss">
 .login-page {
+    background: linear-gradient(90deg, #ffffff 19px, transparent 1%) center,
+        linear-gradient(#ffffff 19px, transparent 1%) center, #f0f0f0;
+    background-size: 22px 22px;
+}
+
+.min-vh-100 {
     min-height: 100vh;
 }
 

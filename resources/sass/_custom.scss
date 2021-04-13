@@ -1,11 +1,14 @@
-h4 {
-    // font-weight: 500;
-    color: #17a2b8 !important; // giống .text-info
-    font-size: 1rem; // nhỏ lại
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=block');
+
+html {
+    font-size: 15px;
 }
 
-.form-control-max-width {
-    // Hiện .form-control đang có width là 100%, nên nhiều khi trông dài quá
-    // Giới hạn ngắn lại
-    max-width: 400px;
+body {
+	font-family: Roboto, sans-serif;
+}
+
+label {
+    // Màu giống .text-muted
+    color: #6c757d;
 }

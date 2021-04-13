@@ -1,5 +1,5 @@
-import routes from './routes';
-import checkAuthentication from './checkAuthentication';
+import routes from './routes.js';
+import checkAuthentication from './checkAuthentication.js';
 
 const router = new VueRouter({
     mode: 'history',
