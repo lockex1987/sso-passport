@@ -23,7 +23,7 @@ class AccountController extends Controller
         $request->validate([
             'fullName' => 'required',
             'email' => 'required|email',
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+            'avatar' => 'mimes:png,jpg,jpeg,gif|max:2048'
         ]);
 
         $fullName = $request->fullName;
@@ -34,15 +34,20 @@ class AccountController extends Controller
         $user = User::find($id);
 
         if (!empty($avatar)) {
+            $appUrl = config('app.url');
+
             // Xóa ảnh cũ
             if ($user->avatar) {
-                Storage::delete('avatars/' . $user->avatar);
+                if (str_starts_with($user->avatar, $appUrl)) {
+                    $relativePath = str_replace($appUrl . '/storage/avatars/', 'avatars/', $user->avatar);
+                    Storage::disk('public')->delete($relativePath);
+                }
             }
 
-            $avatarName = $user->id . '_avatar_' . time() . '.' . $request->avatar->getClientOriginalExtension();
-            $request->avatar->storeAs('avatars', $avatarName, 'public');
+            $avatarName = $user->id . '_avatar_' . time() . '.' . $avatar->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('avatars', $avatar, $avatarName);
 
-            $user->avatar = $avatarName;
+            $user->avatar = $appUrl . '/storage/avatars/' . $avatarName;
         }
 
         $user->full_name = $fullName;

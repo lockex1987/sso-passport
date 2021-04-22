@@ -9,7 +9,7 @@
             <div class="text-center pt-3"
                 v-if="loginUser">
                 <img class="logo rounded-circle object-fit-cover"
-                    :src="'/storage/avatars/' + loginUser.avatar"
+                    :src="loginUser.avatar"
                     onerror="this.src = '/images/user-avatar.png'" />
 
                 <div class="mt-3">

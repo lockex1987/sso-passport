@@ -21,9 +21,7 @@
         "noti": "readonly",
         "Datatable": "readonly",
         "Pagi": "readonly",
-        "CommonUtils": "readonly",
-        "SSO_CONSUMER_DOMAIN": "readonly",
-        "SSO_PASSPORT_URL": "readonly",
+        "CommonUtils": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 12,

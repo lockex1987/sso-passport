@@ -4,7 +4,7 @@
             <div class="pb-4 mb-4 mt-5 text-center">
                 <label class="d-block mb-0 cursor-pointer">
                     <img class="rounded-circle avatar object-fit-cover"
-                        :src="'/storage/avatars/' + loginUser.avatar"
+                        :src="loginUser.avatar"
                         title="Đổi ảnh đại diện"
                         onerror="this.src = '/images/user-avatar.png'"
                         ref="theImage" />
@@ -12,7 +12,7 @@
                     <input type="file"
                         ref="avatarFile"
                         @change="previewAvatar()"
-                        accept="image/*,.png,.jpeg,.jpg,.gif;capture=camera"
+                        accept=".png,.jpg,.jpeg,.gif;capture=camera"
                         class="d-none">
                 </label>
 
@@ -79,13 +79,14 @@ export default {
         };
     },
 
-    
-
     mounted() {
         this.initInfo();
     },
 
     methods: {
+        /**
+         * Lấy thông tin người dùng.
+         */
         initInfo() {
             this.fullName = this.loginUser.full_name;
             this.email = this.loginUser.email;
