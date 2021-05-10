@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="changePassword()">
-        <div class="form-group validate-container mt-4">
+        <div class="mb-3 validate-container mt-4">
             <label class="required">
                 Mật khẩu cũ
             </label>
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="form-group validate-container mt-4">
+        <div class="mb-3 validate-container mt-4">
             <label class="required">
                 Mật khẩu mới
             </label>
@@ -35,7 +35,8 @@
                     class="form-control form-control-max-width"
                     placeholder="Mật khẩu mới"
                     data-validation="required|password|passwordStrong|maxLength:50"
-                    autocomplete="new-password">
+                    autocomplete="new-password"
+                    @keydown="handleCapsLockWarning($event)">
 
                 <div class="input-group-append">
                     <span class="input-group-text cursor-pointer"
@@ -46,6 +47,9 @@
                     </span>
                 </div>
             </div>
+
+            <div class="mt-1 font-size-0.875 text-warning"
+                v-show="isCapsLockOn">* Đang bật Caps Lock</div>
         </div>
 
         <div class="mt-2">
@@ -75,11 +79,24 @@ export default {
             newPassword: '',
             showNewPassword: false,
             // Đánh dấu đang xử lý
-            isProcessing: false
+            isProcessing: false,
+            // Có phải đang bật Caps Lock hay không
+            isCapsLockOn: false
         };
     },
 
     methods: {
+        /**
+         * Khi Caps Lock đang được bật thì cảnh báo người dùng.
+         * Đơn giản, nhưng rất hữu ích.
+         */
+        handleCapsLockWarning(evt) {
+            // Thêm đoạn kiểm tra getModifierState vì khi focus thì bị lỗi
+            if (evt.getModifierState) {
+                this.isCapsLockOn = evt.getModifierState('CapsLock');
+            }
+        },
+
         /**
          * Ẩn / hiện password cũ.
          */
