@@ -8,7 +8,7 @@
                     {{errorMessage}}
                 </div>
 
-                <div class="form-group validate-container">
+                <div class="mb-3 validate-container">
                     <input v-model.trim="username"
                         type="text"
                         class="form-control"
@@ -18,14 +18,15 @@
                         autocomplete="username" />
                 </div>
 
-                <div class="form-group validate-container">
+                <div class="mb-3 validate-container">
                     <div class="input-group">
                         <input v-model.trim="password"
                             :type="showPassword ? 'text' : 'password'"
                             class="form-control"
                             placeholder="Mật khẩu"
                             data-validation="required"
-                            autocomplete="current-password">
+                            autocomplete="current-password"
+                            @keydown="handleCapsLockWarning($event)">
 
                         <div class="input-group-append">
                             <span class="input-group-text cursor-pointer"
@@ -36,6 +37,9 @@
                             </span>
                         </div>
                     </div>
+
+                    <div class="mt-1 font-size-0.875 text-warning"
+                        v-show="isCapsLockOn">* Đang bật Caps Lock</div>
                 </div>
 
                 <div class="mb-3">
@@ -84,7 +88,9 @@ export default {
             // Có hiển thị password hay không
             showPassword: false,
             // Ứng dụng đang login
-            app: null
+            app: null,
+            // Có phải đang bật Caps Lock hay không
+            isCapsLockOn: false
         };
     },
 
@@ -100,6 +106,17 @@ export default {
     },
 
     methods: {
+        /**
+         * Khi Caps Lock đang được bật thì cảnh báo người dùng.
+         * Đơn giản, nhưng rất hữu ích.
+         */
+        handleCapsLockWarning(evt) {
+            // Thêm đoạn kiểm tra getModifierState vì khi focus thì bị lỗi
+            if (evt.getModifierState) {
+                this.isCapsLockOn = evt.getModifierState('CapsLock');
+            }
+        },
+
         /**
          * Xử lý đăng nhập.
          */
