@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Cache\Auth;
 use App\Models\SystemLog;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 

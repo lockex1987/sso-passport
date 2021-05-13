@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Cache\Auth;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
@@ -33,7 +32,7 @@ class AccountController extends Controller
         $id = Auth::user()->id;
         $user = User::find($id);
 
-        if (!empty($avatar)) {
+        if (! empty($avatar)) {
             $appUrl = config('app.url');
 
             // Xóa ảnh cũ

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Cache\Auth;
+use App\Mail\ChangePassword;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Mail\ChangePassword;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 
 class ChangePasswordController extends Controller
@@ -37,7 +36,7 @@ class ChangePasswordController extends Controller
         $userId = Auth::user()->id;
         $user = User::find($userId);
 
-        if (!Hash::check($oldPassword, $user->password)) {
+        if (! Hash::check($oldPassword, $user->password)) {
             return [
                 'code' => 1,
                 'message' => 'Mật khẩu cũ không chính xác'

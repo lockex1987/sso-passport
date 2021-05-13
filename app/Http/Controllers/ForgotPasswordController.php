@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\PasswordReset;
-use App\Http\Controllers\Controller;
 use App\Mail\ResetPassword;
+use App\Models\PasswordReset;
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
 
 /**
  * Gửi mail quên mật khẩu.
@@ -30,7 +29,7 @@ class ForgotPasswordController extends Controller
         $email = $request->email;
         $user = User::where('email', '=', $email)->first();
 
-        if (!$user) {
+        if (! $user) {
             return response()
                     ->json([
                         'code' => 1,

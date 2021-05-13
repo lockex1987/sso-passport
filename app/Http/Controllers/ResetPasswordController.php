@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\PasswordReset;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -17,7 +16,8 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('customThrottle:10,1,7,reset-password');
     }
 
@@ -34,7 +34,7 @@ class ResetPasswordController extends Controller
         $passwordReset = PasswordReset::where('reset_token', $resetToken)
                 ->first();
 
-        if (!$passwordReset) {
+        if (! $passwordReset) {
             return [
                 'code' => 1,
                 'message' => 'Mã bí mật không hợp lệ'

@@ -2,11 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
-use Carbon\Carbon;
 use App\Cache\CustomRateLimiter;
-use Symfony\Component\HttpFoundation\Response;
+use Closure;
 use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpFoundation\Response;
 
 class CustomThrottleRequests
 {
@@ -53,7 +52,7 @@ class CustomThrottleRequests
             $retryAfter = $this->limiter->availableIn($key);
             $content = json_encode([
                 'code' => 429,
-			    'message' => 'Bạn thực hiện sai quá nhiều lần, vui lòng thử lại sau ' . $retryAfter . ' giây',
+                'message' => 'Bạn thực hiện sai quá nhiều lần, vui lòng thử lại sau ' . $retryAfter . ' giây',
                 'retryAfter' => $retryAfter
             ]);
             $response = new Response($content, 200);

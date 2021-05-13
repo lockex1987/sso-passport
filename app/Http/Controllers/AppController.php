@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Cache\Auth;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class AppController extends Controller
 {

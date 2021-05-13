@@ -89,7 +89,7 @@ class Auth
         Redis::del($redisKey);
 
         $user = json_decode($redisValue, true);
-		return $user;
+        return $user;
     }
 
     /**

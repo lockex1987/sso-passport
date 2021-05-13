@@ -2,8 +2,8 @@
 
 namespace App\Cache;
 
-use Illuminate\Support\InteractsWithTime;
 use Illuminate\Contracts\Cache\Repository as Cache;
+use Illuminate\Support\InteractsWithTime;
 
 
 class CustomRateLimiter
@@ -48,7 +48,7 @@ class CustomRateLimiter
     public function tooManyAttempts($key, $maxAttempts)
     {
         if ($this->attempts($key) >= $maxAttempts) {
-            if ($this->cache->has($key.':timer')) {
+            if ($this->cache->has($key . ':timer')) {
                 return true;
             }
 
@@ -68,7 +68,9 @@ class CustomRateLimiter
     public function hit($key, $decaySeconds = 60, $blockedSeconds = 360)
     {
         $this->cache->add(
-            $key.':timer', $this->availableAt($blockedSeconds), $blockedSeconds
+            $key . ':timer',
+            $this->availableAt($blockedSeconds),
+            $blockedSeconds
         );
 
         $added = $this->cache->add($key, 0, $decaySeconds);
@@ -103,7 +105,7 @@ class CustomRateLimiter
     {
         return $this->cache->forget($key);
     }
-    
+
 
     /**
      * Get the number of seconds until the "key" is accessible again.
@@ -113,6 +115,6 @@ class CustomRateLimiter
      */
     public function availableIn($key)
     {
-        return $this->cache->get($key.':timer') - $this->currentTime();
+        return $this->cache->get($key . ':timer') - $this->currentTime();
     }
 }

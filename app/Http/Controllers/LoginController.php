@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Cache\Auth;
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\App;
 use App\Models\SystemLog;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 /**
@@ -33,7 +32,7 @@ class LoginController extends Controller
         $user = $this->attemptLogin($username, $password);
 
         // Nếu không khớp thì báo lỗi và dừng lại
-        if (!$user) {
+        if (! $user) {
             return response()
                     ->json([
                         'code' => 1,
@@ -49,10 +48,10 @@ class LoginController extends Controller
 
         // Lưu thông tin người dùng
         $token = Auth::saveUser($user);
-        
+
         // Lưu log
         $this->insertLoginLog($user->id);
-        
+
         // Nếu không nhập mã ứng dụng khác thì trở về trang chủ luôn
         $app = $request->input('app');
         if (empty($app)) {
