@@ -21,6 +21,6 @@ mix.webpackConfig({
     output: {
         // Các file khác (pages) ở trong thư mục js
         // Thêm hash để không bị cache
-        chunkFilename: 'js/[name].[chunkhash].js'
+        chunkFilename: 'js/[name].js?h=[chunkhash]'
     }
 });
