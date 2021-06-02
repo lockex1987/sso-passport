@@ -53,13 +53,19 @@
                     </div>
                 </div>
 
-                <div class="text-center">
+                <div class="text-center mb-3">
                     <button class="btn btn-primary btn-ripple btn-block"
                         type="submit">
                         Đăng ký
                         <span class="spinner-border spinner-border-sm"
                             v-show="isProcessing"></span>
                     </button>
+                </div>
+
+                <div class="text-center">
+                    <router-link :to="{ name: 'login' }">
+                        Quay lại đăng nhập
+                    </router-link>
                 </div>
             </form>
         </div>

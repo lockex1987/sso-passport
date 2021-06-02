@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Cache\Auth;
 use App\Models\SystemLog;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 
 class LoginLogController extends Controller
@@ -17,10 +16,6 @@ class LoginLogController extends Controller
     {
         $id = Auth::user()->id;
         $size = $request->size;
-
-        // Log::info('Test log info');
-        // Log::error('Test log lỗi');
-
         $pagi = SystemLog::where('user_id', $id)
             ->where('type', 'login')
             ->orderBy('created_at', 'desc')
