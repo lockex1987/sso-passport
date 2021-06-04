@@ -16,36 +16,41 @@ class VerifyEmailController extends Controller
             'verifyToken' => 'required'
         ]);
 
-        $registerUser = RegisterUser::where('verify_token', $request->verifyToken)->first();
+        $registerUser = RegisterUser::where('verify_token', $request->verifyToken)
+            ->first();
 
         if (! $registerUser) {
             return [
-                'code' => 1,
+                'code' => 2,
                 'message' => 'Mã xác nhận không hợp lệ'
             ];
         }
 
         if (Carbon::now() > $registerUser->expired_at) {
             $registerUser->delete();
-
             return [
-                'code' => 1,
-                'message' => 'Mã xác nhận đã hết hiệu lực'
+                'code' => 2,
+                'message' => 'Mã xác nhận đã hết hiệu lực. Vui lòng đăng ký lại.'
             ];
         }
 
-        $user = new User();
-        $user->password = $registerUser->password;
-        $user->username = $registerUser->username;
-        $user->full_name = $registerUser->full_name;
-        $user->email = $registerUser->email;
-        $user->is_active = 1;
-        $user->save();
-
+        $this->createNewUser($registerUser);
         $registerUser->delete();
 
         return [
             'code' => 0
         ];
+    }
+
+    private function createNewUser(RegisterUser $registerUser): void
+    {
+        $user = new User();
+        $user->password = $registerUser->password;
+        $user->username = $registerUser->username;
+        $user->full_name = $registerUser->full_name;
+        $user->email = $registerUser->email;
+        $user->phone = $registerUser->phone;
+        $user->is_active = 1;
+        $user->save();
     }
 }

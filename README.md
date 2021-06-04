@@ -1,8 +1,5 @@
 ## SSO Passport
 
-Backend:
-
-* Laravel 7 (9?)
-* Không built-in authentication
-
-Dạng SPA, Laravel chỉ làm API
+* Laravel 7 (TODO: nâng cấp lên 9)
+* Không sử dụng built-in authentication để có thể hiểu và tùy chỉnh
+* Dạng SPA, Laravel chỉ làm API

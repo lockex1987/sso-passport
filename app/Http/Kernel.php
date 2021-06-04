@@ -28,21 +28,23 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewareGroups = [
+        // Nhóm các middleware sử dụng cho trang web
+        // Project này có dạng SPA và sử dụng token nên không cần nhiều, không cần session
         'web' => [
-            \App\Http\Middleware\EncryptCookies::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
+            // \App\Http\Middleware\EncryptCookies::class,
+            // \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            // \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            // \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            // \App\Http\Middleware\VerifyCsrfToken::class,
+            // \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
         'api' => [
             // Bỏ đi
             // Khi đăng nhập, chỉ khi nhập sai mối giới hạn
             // Đăng ký, reset mật khẩu thì luôn giới hạn
-            //'throttle:60,1',
+            // 'throttle:60,1',
 
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
@@ -66,7 +68,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-
+        // Middleware tự viết
         'customThrottle' => \App\Http\Middleware\CustomThrottleRequests::class
     ];
 }

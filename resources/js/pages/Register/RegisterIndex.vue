@@ -1,7 +1,7 @@
 <template>
     <div class="register-page d-flex justify-content-center align-items-center">
         <div class="register-box w-100 m-2 rounded py-5 px-4">
-            <div class="mb-3 font-weight-500 text-info">
+            <div class="mb-3 font-weight-500 text-info text-center">
                 Đăng ký
             </div>
 
@@ -30,7 +30,15 @@
                         placeholder="Email"
                         v-model.trim="email"
                         class="form-control"
-                        data-validation="required|email" />
+                        data-validation="required|email|maxLength:100" />
+                </div>
+
+                <div class="mb-3 validate-container">
+                    <input type="text"
+                        placeholder="Số điện thoại"
+                        v-model.trim="phone"
+                        class="form-control"
+                        data-validation="phone|maxLength:20" />
                 </div>
 
                 <div class="mb-3 validate-container">
@@ -82,8 +90,11 @@ export default {
             fullName: '',
             email: '',
             password: '',
+            phone: '',
+
             // Đang xử lý
             isProcessing: false,
+
             // Hiển thị mật khẩu
             showPassword: false
         };
@@ -110,6 +121,7 @@ export default {
                 username: this.username,
                 fullName: this.fullName,
                 email: this.email,
+                phone: this.phone,
                 password: this.password
             };
 
@@ -117,7 +129,7 @@ export default {
             const { data } = await axios.post('/register', params);
             this.isProcessing = false;
 
-            if (data.code == 1) {
+            if (data.code == 2) {
                 noti.error(data.message);
             } else if (data.code == 0) {
                 noti.success('Bạn đã đăng ký thành công. Vui lòng kiểm tra email');

@@ -34,8 +34,10 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
+        // Không sử dụng console (project này không có nghiệp vụ)
+        /*
         $this->load(__DIR__ . '/Commands');
-
         require base_path('routes/console.php');
+        */
     }
 }
