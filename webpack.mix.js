@@ -2,8 +2,8 @@ const mix = require('laravel-mix');
 const path = require('path');
 
 
-mix.js('resources/js/script.js', 'public/js')
-    .sass('resources/sass/style.scss', 'public/css')
+mix.js('frontend/js/script.js', 'public/js')
+    .sass('frontend/sass/style.scss', 'public/css')
     .sourceMaps(true, 'source-map');
 
 if (mix.inProduction()) {
@@ -14,7 +14,7 @@ mix.webpackConfig({
     resolve: {
         alias: {
             // Điều chỉnh để import các file cho dễ
-            '~': path.join(__dirname, './resources/js')
+            '~': path.join(__dirname, './frontend/js')
         }
     },
 

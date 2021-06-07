@@ -3,9 +3,9 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "~/*": ["resources/js/*"]
+            "~/*": ["frontend/js/*"]
         }
     },
-    "include": ["resources/js/**/*"],
+    "include": ["frontend/js/**/*"],
     "exclude": ["node_modules"]
 }
