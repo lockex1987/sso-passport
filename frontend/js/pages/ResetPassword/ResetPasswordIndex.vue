@@ -1,12 +1,8 @@
 <template>
-    <div class="reset-password-page d-flex justify-content-center align-items-center">
+    <div class="login-background min-vh-100 d-flex justify-content-center align-items-center">
         <div class="reset-password-box w-100 m-2 rounded py-5 px-4">
-            <div class="mb-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="font-weight-500 text-info">
-                        Đặt lại mật khẩu
-                    </div>
-                </div>
+            <div class="mb-3 font-weight-500 text-info text-center">
+                Đặt lại mật khẩu
             </div>
 
             <form @submit.prevent="resetPassword()">
@@ -121,14 +117,3 @@ export default {
     }
 };
 </script>
-
-
-<style scoped lang="scss">
-.reset-password-page {
-    min-height: 100vh;
-}
-
-.reset-password-box {
-    max-width: 400px;
-}
-</style>

@@ -6,6 +6,7 @@ use App\Models\RegisterUser;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 
 class VerifyEmailController extends Controller
@@ -15,8 +16,9 @@ class VerifyEmailController extends Controller
         $request->validate([
             'verifyToken' => 'required'
         ]);
+        $token = Crypt::encryptString($request->verifyToken);
 
-        $registerUser = RegisterUser::where('verify_token', $request->verifyToken)
+        $registerUser = RegisterUser::where('verify_token', $token)
             ->first();
 
         if (! $registerUser) {
@@ -26,7 +28,8 @@ class VerifyEmailController extends Controller
             ];
         }
 
-        if (Carbon::now() > $registerUser->expired_at) {
+        $isExpired = Carbon::now() > $registerUser->expired_at;
+        if ($isExpired) {
             $registerUser->delete();
             return [
                 'code' => 2,
@@ -38,7 +41,8 @@ class VerifyEmailController extends Controller
         $registerUser->delete();
 
         return [
-            'code' => 0
+            'code' => 0,
+            'message' => 'Đăng ký thành công'
         ];
     }
 

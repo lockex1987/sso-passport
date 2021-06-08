@@ -1,5 +1,5 @@
 <template>
-    <div class="register-page d-flex justify-content-center align-items-center">
+    <div class="login-background min-vh-100 d-flex justify-content-center align-items-center">
         <div class="register-box w-100 m-2 rounded py-5 px-4">
             <div class="mb-3 font-weight-500 text-info text-center">
                 Đăng ký
@@ -112,7 +112,6 @@ export default {
          * Gửi token reset mật khẩu
          */
         async sendResetToken() {
-            // Validate
             if (CV.invalidForm(this.$el)) {
                 return;
             }
@@ -129,23 +128,12 @@ export default {
             const { data } = await axios.post('/register', params);
             this.isProcessing = false;
 
-            if (data.code == 2) {
+            if (data.code == 0) {
+                noti.success('Lưu thông tin thành công. Vui lòng kiểm tra email để hoàn thành việc đăng ký.');
+            } else if (data.code == 2) {
                 noti.error(data.message);
-            } else if (data.code == 0) {
-                noti.success('Bạn đã đăng ký thành công. Vui lòng kiểm tra email');
             }
         }
     }
 };
 </script>
-
-
-<style scoped lang="scss">
-.register-page {
-    min-height: 100vh;
-}
-
-.register-box {
-    max-width: 400px;
-}
-</style>

@@ -1,7 +1,7 @@
 <template>
-    <div class="forget-password-page d-flex justify-content-center align-items-center">
+    <div class="login-background min-vh-100 d-flex justify-content-center align-items-center">
         <div class="forget-password-box w-100 m-2 rounded py-5 px-4">
-            <div class="mb-3 font-weight-500 text-info">
+            <div class="mb-3 font-weight-500 text-info text-center">
                 Quên mật khẩu
             </div>
 
@@ -77,14 +77,3 @@ export default {
     }
 };
 </script>
-
-
-<style scoped lang="scss">
-.forget-password-page {
-    min-height: 100vh;
-}
-
-.forget-password-box {
-    max-width: 400px;
-}
-</style>

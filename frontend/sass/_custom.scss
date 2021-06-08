@@ -12,3 +12,21 @@ label {
     // Màu giống .text-muted
     color: #6c757d;
 }
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.login-background {
+    background: linear-gradient(90deg, #ffffff 19px, transparent 1%) center,
+        linear-gradient(#ffffff 19px, transparent 1%) center, #f0f0f0;
+    background-size: 22px 22px;
+}
+
+.login-box,
+.forget-password-box,
+.register-box,
+.reset-password-box,
+.verify-email-box {
+    max-width: 400px;
+}

@@ -1,5 +1,5 @@
 <template>
-    <div class="login-page min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="login-background min-vh-100 d-flex justify-content-center align-items-center">
         <div class="login-box w-100 m-2 rounded py-5 px-4">
             <form ref="frm"
                 @submit.prevent="processLogin()">
@@ -187,20 +187,3 @@ export default {
     }
 };
 </script>
-
-
-<style scoped lang="scss">
-.login-page {
-    background: linear-gradient(90deg, #ffffff 19px, transparent 1%) center,
-        linear-gradient(#ffffff 19px, transparent 1%) center, #f0f0f0;
-    background-size: 22px 22px;
-}
-
-.min-vh-100 {
-    min-height: 100vh;
-}
-
-.login-box {
-    max-width: 400px;
-}
-</style>

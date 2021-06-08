@@ -1,7 +1,7 @@
 <template>
-    <div class="verify-email-page d-flex justify-content-center align-items-center">
+    <div class="login-background min-vh-100 d-flex justify-content-center align-items-center">
         <div class="verify-email-box w-100 m-2 rounded py-5 px-4">
-            <div class="mb-3 font-weight-500 text-info">
+            <div class="mb-3 font-weight-500 text-info text-center">
                 Xác nhận email
             </div>
 
@@ -84,14 +84,3 @@ export default {
     }
 };
 </script>
-
-
-<style scoped lang="scss">
-.verify-email-page {
-    min-height: 100vh;
-}
-
-.verify-email-box {
-    max-width: 400px;
-}
-</style>
