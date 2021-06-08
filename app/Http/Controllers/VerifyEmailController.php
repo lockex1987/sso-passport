@@ -37,6 +37,19 @@ class VerifyEmailController extends Controller
             ];
         }
 
+        // Cần kiểm tra ở bảng user đã có người dùng có username, email như thế hay chưa
+        // Có thể có trường hợp thực hiện thao tác đăng ký nhiều lần, gửi mail nhiều lần với cùng email
+        // Nên để ràng buộc unique ở DB
+        $user = User::where('username', $registerUser->username)
+            ->orWhere('email', $registerUser->email)
+            ->first();
+        if ($user) {
+            return [
+                'code' => 2,
+                'message' => 'Người dùng đã tồn tại'
+            ];
+        }
+
         $this->createNewUser($registerUser);
         $registerUser->delete();
 

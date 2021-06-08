@@ -19,6 +19,7 @@ class RegisterController extends Controller
         $this->validateInfo($request);
         $verifyToken = $this->generateVerifyToken();
         $this->saveToDatabase($request, $verifyToken);
+        // TODO: Sử dụng Queue, Event?
         // $this->sendRegisterEmail($request, $verifyToken);
         return [
             'code' => 0,
