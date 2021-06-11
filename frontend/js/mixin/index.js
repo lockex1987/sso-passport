@@ -81,7 +81,7 @@ export default {
                 digits = 1;
             }
 
-            var si = [
+            const si = [
                 { value: 1E18, symbol: 'E' },
                 { value: 1E15, symbol: 'P' },
                 { value: 1E12, symbol: 'T' },
@@ -89,9 +89,9 @@ export default {
                 { value: 1E6, symbol: 'M' },
                 { value: 1E3, symbol: 'K' }
             ];
-            for (var i = 0; i < si.length; i++) {
+            for (let i = 0; i < si.length; i++) {
                 if (num >= si[i].value) {
-                    var n = (num / si[i].value).toFixed(digits);
+                    const n = (num / si[i].value).toFixed(digits);
 
                     // Xóa những chữ số 0 đằng sau dấu thập phân
                     // Nếu chỉ để 0+ thì sẽ không xóa được dấu .

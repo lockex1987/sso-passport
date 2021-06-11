@@ -1,7 +1,7 @@
 // Hỗ trợ nhiều modal nhiều lớp
 // https://stackoverflow.com/questions/19305821/multiple-modals-overlay
 $(document).on('show.bs.modal', '.modal', function () {
-    var zIndex = 1040 + (10 * $('.modal:visible').length);
+    const zIndex = 1040 + (10 * $('.modal:visible').length);
     $(this).css('z-index', zIndex);
     setTimeout(function () {
         $('.modal-backdrop')
