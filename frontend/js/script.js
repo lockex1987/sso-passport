@@ -8,7 +8,6 @@ import App from './App.vue';
 
 Vue.mixin(mixin);
 
-// Khởi tạo Vue
 new Vue({
     router,
     store,

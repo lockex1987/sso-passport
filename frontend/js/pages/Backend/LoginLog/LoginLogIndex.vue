@@ -18,8 +18,14 @@
                         <th class="text-center">
                             IP
                         </th>
+                        <th class="text-center d-none">
+                            User agent
+                        </th>
                         <th class="text-center">
-                            User agent (TODO: Browser, OS)
+                            Trình duyệt
+                        </th>
+                        <th class="text-center">
+                            Hệ điều hành
                         </th>
                     </tr>
                 </thead>
@@ -36,8 +42,14 @@
                         <td>
                             {{log.ip}}
                         </td>
-                        <td>
+                        <td class="d-none">
                             {{log.user_agent}}
+                        </td>
+                        <td>
+                            {{log.browser}}
+                        </td>
+                        <td>
+                            {{log.os}}
                         </td>
                     </tr>
                 </tbody>

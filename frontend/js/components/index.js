@@ -1,13 +1,13 @@
 // Đăng ký các component hay dùng
-import DatePicker from './DatePicker';
-import DateRangePicker from './DateRangePicker';
-import DateRangePickerSeparate from './DateRangePickerSeparate';
-import WeekPicker from './WeekPicker';
-import MonthPicker from './MonthPicker';
-import YearPicker from './YearPicker';
-import TopHeader from './TopHeader';
-import DropdownSelect from './DropdownSelect';
-// import TagsInput from './TagsInput';
+import DatePicker from './DatePicker.vue';
+import DateRangePicker from './DateRangePicker.vue';
+import DateRangePickerSeparate from './DateRangePickerSeparate.vue';
+import WeekPicker from './WeekPicker.vue';
+import MonthPicker from './MonthPicker.vue';
+import YearPicker from './YearPicker.vue';
+import TopHeader from './TopHeader.vue';
+import DropdownSelect from './DropdownSelect.vue';
+// import TagsInput from './TagsInput.vue';
 
 Vue.component('date-picker', DatePicker);
 Vue.component('date-range-picker', DateRangePicker);

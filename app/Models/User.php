@@ -9,7 +9,8 @@ class User extends BaseModel
 
     // Ẩn cột password ở JSON trả về
     protected $hidden = [
-        'password'
+        'password',
+        // 'totp'
     ];
 
     /**
@@ -17,6 +18,6 @@ class User extends BaseModel
      */
     public function apps()
     {
-        return $this->belongsToMany('App\Models\App', 'user_app');
+        return $this->belongsToMany(App::class, 'user_app');
     }
 }

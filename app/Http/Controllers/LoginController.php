@@ -160,7 +160,7 @@ class LoginController extends Controller
     /**
      * Thêm log.
      */
-    private function insertLoginLog($userId)
+    private function insertLoginLog($userId): void
     {
         $request = request();
 
@@ -168,7 +168,12 @@ class LoginController extends Controller
         $loginLog->user_id = $userId;
         $loginLog->ip = $request->ip();
         $loginLog->user_agent = $request->header('User-Agent');
-        // TODO: Parse user agent thành browser (Firefox, Chrome, Edge, Chromium,...) và os (Windows, Ubuntu, Linux,...)
+
+        // Parse user agent thành browser (Firefox, Chrome, Edge, Chromium,...) và OS (Windows, Ubuntu, Linux,...)
+        $temp = new \WhichBrowser\Parser($loginLog->user_agent);
+        $loginLog->browser = $temp->browser->toString();
+        $loginLog->os = $temp->os->toString();
+
         $loginLog->created_at = now();
         $loginLog->type = 'login';
         $loginLog->save();
