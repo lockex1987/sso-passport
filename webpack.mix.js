@@ -3,6 +3,7 @@ const path = require('path');
 
 
 mix.js('frontend/js/script.js', 'public/js')
+    .vue({ version: 2 })
     .sass('frontend/sass/style.scss', 'public/css')
     .sourceMaps(true, 'source-map');
 
