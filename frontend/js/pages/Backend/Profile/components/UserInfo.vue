@@ -1,37 +1,36 @@
 <template>
     <form @submit.prevent="updateInfo()">
-        <div class="form-control-max-width">
-            <div class="pb-4 mb-4 mt-5 text-center">
-                <label class="d-block mb-0 cursor-pointer">
-                    <img class="rounded-circle avatar object-fit-cover"
-                        :src="loginUser.avatar"
-                        title="Đổi ảnh đại diện"
-                        onerror="this.src = '/images/user-avatar.png'"
-                        ref="theImage" />
+        <div class="mb-3 form-control-max-width py-4 text-center">
+            <label class="d-block mb-0 cursor-pointer">
+                <img class="rounded-circle avatar object-fit-cover"
+                    :src="loginUser.avatar"
+                    title="Đổi ảnh đại diện"
+                    onerror="this.src = '/images/user-avatar.png'"
+                    ref="theImage" />
 
-                    <input type="file"
-                        ref="avatarFile"
-                        @change="previewAvatar()"
-                        accept=".png,.jpg,.jpeg,.gif;capture=camera"
-                        class="d-none">
-                </label>
+                <input type="file"
+                    ref="avatarFile"
+                    @change="previewAvatar()"
+                    accept=".png,.jpg,.jpeg,.gif;capture=camera"
+                    class="d-none">
+            </label>
 
-                <div class="text-muted font-size-0.75 mt-3">
-                    * Click vào ảnh đại diện để đổi ảnh
-                </div>
+            <div class="text-muted font-size-0.75 mt-3">
+                * Click vào ảnh đại diện để đổi ảnh
             </div>
         </div>
 
-        <div class="form-group mt-4">
+        <div class="mb-3">
             <label>
                 Tài khoản
             </label>
+
             <div class="text-info">
                 {{loginUser.username}}
             </div>
         </div>
 
-        <div class="form-group validate-container mt-4">
+        <div class="mb-3 validate-container">
             <label class="required">
                 Tên hiển thị
             </label>
@@ -42,7 +41,7 @@
                 data-validation="required" />
         </div>
 
-        <div class="form-group validate-container mt-4">
+        <div class="mb-3 validate-container">
             <label class="required">
                 Email
             </label>
@@ -53,7 +52,18 @@
                 data-validation="required|email" />
         </div>
 
-        <div class="mt-2">
+        <div class="mb-3 validate-container">
+            <label>
+                Số điện thoại
+            </label>
+
+            <input type="text"
+                v-model.trim="phone"
+                class="form-control form-control-max-width"
+                data-validation="phone|maxLength:20" />
+        </div>
+
+        <div>
             <button class="btn btn-primary"
                 type="submit">
                 Lưu thông tin
@@ -75,6 +85,7 @@ export default {
         return {
             fullName: '',
             email: '',
+            phone: '',
             avatar: null
         };
     },
@@ -90,23 +101,24 @@ export default {
         initInfo() {
             this.fullName = this.loginUser.full_name;
             this.email = this.loginUser.email;
+            this.phone = this.loginUser.phone;
             this.avatar = null;
             this.$refs.avatarFile.value = '';
+            this.$refs.theImage.src = this.loginUser.avatar;
         },
 
         /**
          * Cập nhật lại thông tin.
          */
         async updateInfo() {
-            // Validate
             if (CV.invalidForm(this.$el)) {
                 return;
             }
 
-            // Gọi lên server (API)
             const params = new FormData();
             params.append('fullName', this.fullName);
             params.append('email', this.email);
+            params.append('phone', this.phone);
             if (this.avatar) {
                 params.append('avatar', this.avatar);
             }
@@ -114,9 +126,11 @@ export default {
             const { data } = await axios.post('/user', params);
             if (data.code == 0) {
                 // Cập nhật lại vuex (thông tin email)
-                this.loginUser.email = this.email;
                 this.loginUser.full_name = this.fullName;
+                this.loginUser.email = this.email;
+                this.loginUser.phone = this.phone;
                 this.loginUser.avatar = data.avatar;
+
                 this.$store.commit('auth/setUser', this.loginUser);
 
                 this.initInfo();

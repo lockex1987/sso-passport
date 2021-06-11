@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="h-100 mb-5">
-                    <div class="text-info">
+                    <div class="text-info mb-3">
                         Thông tin tài khoản
                     </div>
 
@@ -15,7 +15,7 @@
 
             <div class="col-lg-6">
                 <div class="h-100 mb-5">
-                    <div class="text-info">
+                    <div class="text-info mb-3">
                         Đổi mật khẩu
                     </div>
 

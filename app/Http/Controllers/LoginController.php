@@ -98,7 +98,7 @@ class LoginController extends Controller
 
         $id = $redisUser->id;
         $user = User::find($id);
-        $user->password = null;
+        // $user->password = null;
 
         if (! $user) {
             return [
@@ -106,7 +106,7 @@ class LoginController extends Controller
             ];
         }
 
-        $app = $request->input('app');
+        $app = $request->app;
 
         if (empty($app)) {
             return [
@@ -115,9 +115,9 @@ class LoginController extends Controller
             ];
         }
 
-        //$token = Auth::getToken();
+        // $token = Auth::getToken();
 
-        return $this->checkRedirectApp($app, null/*$token*/, $user, true);
+        return $this->checkRedirectApp($app, null /* $token */, $user, true);
     }
 
     /**

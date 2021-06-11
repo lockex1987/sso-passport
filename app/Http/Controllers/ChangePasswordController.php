@@ -18,7 +18,7 @@ class ChangePasswordController extends Controller
     }
 
     /**
-     * Đổi mật khẩu
+     * Đổi mật khẩu.
      */
     public function changePassword(Request $request)
     {
@@ -58,7 +58,7 @@ class ChangePasswordController extends Controller
     /**
      * Gửi mail.
      */
-    private function sendEmail($user)
+    private function sendEmail(User $user): void
     {
         $changePasswordEmail = new ChangePassword($user->full_name);
         Mail::to($user->email)->send($changePasswordEmail);
