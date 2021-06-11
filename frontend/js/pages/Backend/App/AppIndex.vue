@@ -22,6 +22,9 @@
                         <th class="text-center">
                             Tên ứng dụng
                         </th>
+                        <th class="text-center">
+                            Chuyển tới ứng dụng
+                        </th>
                     </tr>
                 </thead>
 
@@ -36,6 +39,9 @@
                         </td>
                         <td>
                             {{app.name}}
+                        </td>
+                        <td class="text-center">
+                            <a :href="app.login_redirect"><i class="la la-link"></i></a>
                         </td>
                     </tr>
                 </tbody>

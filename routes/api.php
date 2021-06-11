@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AppController;
-use App\Http\Controllers\LoginLogController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LoginLogController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
