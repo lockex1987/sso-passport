@@ -123,7 +123,7 @@ export default {
                 params.append('avatar', this.avatar);
             }
 
-            const { data } = await axios.post('/user', params);
+            const { data } = await axios.post('/api/user', params);
             if (data.code == 0) {
                 // Cập nhật lại vuex (thông tin email)
                 this.loginUser.full_name = this.fullName;

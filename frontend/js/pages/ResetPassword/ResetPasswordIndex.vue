@@ -99,7 +99,7 @@ export default {
                 resetToken: this.resetToken,
                 newPassword: this.newPassword
             };
-            const { data } = await axios.post('/reset-password', params);
+            const { data } = await axios.post('/api/reset-password', params);
             if (data.code == 1) {
                 noti.error(data.message);
                 this.autoFillToken = false;

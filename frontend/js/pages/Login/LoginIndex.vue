@@ -141,7 +141,7 @@ export default {
                 app: this.app
             };
 
-            const { data } = await axios.post('/login', params);
+            const { data } = await axios.post('/api/login', params);
 
             // Đánh dấu đã xử lý xong
             this.isProcessing = false;

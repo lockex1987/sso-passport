@@ -125,7 +125,7 @@ export default {
             };
 
             this.isProcessing = true;
-            const { data } = await axios.post('/register', params);
+            const { data } = await axios.post('/api/register', params);
             this.isProcessing = false;
 
             if (data.code == 0) {

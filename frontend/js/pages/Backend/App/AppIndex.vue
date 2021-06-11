@@ -69,7 +69,7 @@ export default {
          * Lấy danh sách ứng dụng.
          */
         async getAppList() {
-            const { data } = await axios.get('/apps');
+            const { data } = await axios.get('/api/apps');
             this.appList = data;
         }
     }

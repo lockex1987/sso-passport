@@ -133,7 +133,7 @@ export default {
                 oldPassword: this.oldPassword,
                 newPassword: this.newPassword
             };
-            const { data: resp } = await axios.post('/change-password', params);
+            const { data: resp } = await axios.post('/api/change-password', params);
 
             // Đánh dấu đã xử lý xong
             this.isProcessing = false;

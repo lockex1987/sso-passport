@@ -22,7 +22,7 @@ export default async (to, from, next) => {
         const params = {
             app
         };
-        const { data } = await axios.get('/me', { params });
+        const { data } = await axios.get('/api/me', { params });
         if (data.code == 0) {
             if (!app) {
                 user = data.user;

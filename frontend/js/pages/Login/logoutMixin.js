@@ -5,7 +5,7 @@ export default {
          */
         async processLogout(app) {
             // Gọi API đăng xuất
-            const { data } = await axios.post('/logout', { app: app });
+            const { data } = await axios.post('/api/logout', { app: app });
 
             // Xóa session và chuyển đến trang login
             localStorage.removeItem('authToken');

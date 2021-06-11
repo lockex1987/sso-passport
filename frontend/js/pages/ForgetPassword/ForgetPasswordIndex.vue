@@ -59,7 +59,7 @@ export default {
                 email: this.email
             };
             this.isProcessing = true;
-            const { data } = await axios.post('/send-reset-password-token', params);
+            const { data } = await axios.post('/api/send-reset-password-token', params);
             this.isProcessing = false;
             if (data.code == 1) {
                 noti.error(data.message);

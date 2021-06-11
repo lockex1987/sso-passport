@@ -84,7 +84,7 @@ export default {
                 page: page,
                 size: 10
             };
-            const { data } = await axios.get('/login-logs', { params });
+            const { data } = await axios.get('/api/login-logs', { params });
             this.logList = data.data;
             this.pagi = data;
         }

@@ -17,7 +17,7 @@ const mutations = {
      * Lấy danh sách các dự án được đánh dấu (tối đa 5 phần tử).
      */
     async updateMarkedProjectList(state) {
-        const { data: resp } = await axios.get('/project/get-info');
+        const { data: resp } = await axios.get('/api/project/get-info');
         const { data } = resp;
         if (data && data.list) {
             const list = data.list;

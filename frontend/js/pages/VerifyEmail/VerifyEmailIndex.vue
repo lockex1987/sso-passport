@@ -67,7 +67,7 @@ export default {
             const params = {
                 verifyToken: this.verifyToken
             };
-            const { data } = await axios.post('/verify-email', params);
+            const { data } = await axios.post('/api/verify-email', params);
             if (data.code == 2) {
                 noti.error(data.message);
                 this.autoFillToken = false;
