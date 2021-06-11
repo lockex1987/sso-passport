@@ -8,8 +8,8 @@
                 Không tồn tại bản ghi
             </div>
 
-            <table class="table table-bordered"
-                v-else>
+            <table v-else
+                class="table table-bordered">
                 <thead>
                     <tr>
                         <th class="text-center"

@@ -31,7 +31,7 @@ export default async (to, from, next) => {
                 window.location = data.redirectUrl;
             }
         } else {
-            // token đã hết hạn
+            // Token đã hết hạn
             localStorage.removeItem('authToken');
         }
     }

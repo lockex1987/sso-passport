@@ -26,6 +26,7 @@ export default [
         name: 'verifyEmail',
         component: () => import('../pages/VerifyEmail/VerifyEmailIndex.vue')
     },
+
     {
         path: '/backend',
         name: 'backend',
@@ -48,6 +49,7 @@ export default [
             }
         ]
     },
+
     {
         path: '*',
         name: 'NotFound',
