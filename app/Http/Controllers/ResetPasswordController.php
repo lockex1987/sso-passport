@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
     {
         $request->validate([
             'resetToken' => 'required',
-            'newPassword' => 'required'
+            'newPassword' => 'required|min:8'
         ]);
 
         $resetToken = $request->resetToken;

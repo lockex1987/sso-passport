@@ -24,7 +24,7 @@ class ChangePasswordController extends Controller
     {
         $request->validate([
             'oldPassword' => 'required',
-            'newPassword' => 'required'
+            'newPassword' => 'required|min:8|different:oldPassword'
         ]);
 
         // Các tham số người dùng truyền

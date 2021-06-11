@@ -33,7 +33,7 @@ class RegisterController extends Controller
             'username' => 'required|unique:user,username',
             'fullName' => 'required',
             'email' => 'required|email|unique:user,email',
-            'password' => 'required'
+            'password' => 'required|min:8'
         ]);
     }
 

@@ -16,11 +16,8 @@ use Illuminate\Support\Facades\Route;
 // Tối đa nhập sai 5 lần trong 1 phút
 // Nếu vi phạm thì hạn chế trong 2 phút
 Route::post('/login', [LoginController::class, 'login'])->middleware('customThrottle:5,1,2,login');
-
 Route::post('/logout', [LoginController::class, 'logout']);
-
 Route::post('/check-login-ticket', [LoginController::class, 'checkLoginTicket']);
-
 Route::get('/me', [LoginController::class, 'getUserInfo']);
 
 Route::post('/change-password', [ChangePasswordController::class, 'changePassword']);
