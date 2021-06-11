@@ -14,9 +14,9 @@ class LoginLogController extends Controller
      */
     public function getLoginLogsOfUser(Request $request)
     {
-        $id = Auth::user()->id;
+        $userId = Auth::user()->id;
         $size = $request->size;
-        $pagi = SystemLog::where('user_id', $id)
+        $pagi = SystemLog::where('user_id', $userId)
             ->where('type', 'login')
             ->orderBy('created_at', 'desc')
             ->paginate($size);

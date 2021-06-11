@@ -49,7 +49,7 @@ class LoginController extends Controller
         // Lưu thông tin người dùng
         $token = Auth::saveUser($user);
 
-        // Lưu log
+        // Thêm log đăng nhập
         $this->insertLoginLog($user->id);
 
         // Nếu không nhập mã ứng dụng khác thì trở về trang chủ luôn
@@ -158,7 +158,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Thêm log.
+     * Thêm log đăng nhập.
      */
     private function insertLoginLog($userId): void
     {
