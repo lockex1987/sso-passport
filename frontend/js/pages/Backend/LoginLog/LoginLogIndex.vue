@@ -19,7 +19,7 @@
                             IP
                         </th>
                         <th class="text-center">
-                            User agent
+                            User agent (Browser, OS)
                         </th>
                     </tr>
                 </thead>

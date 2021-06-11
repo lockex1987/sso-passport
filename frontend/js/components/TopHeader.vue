@@ -71,6 +71,8 @@ export default {
 
 
 <style scoped lang="scss">
+@use "sass:math";
+
 .top-header {
     height: 70px;
 }
@@ -88,7 +90,7 @@ export default {
         width: $lineWidth;
         background-color: #6c757d; // giống .text-muted
         position: relative;
-        left: calc(50% - #{$lineWidth / 2});
+        left: calc(50% - math.div($lineWidth / 2));
         transition: width 0.3s ease-in-out;
     }
 
@@ -106,11 +108,11 @@ export default {
 
     &.opened {
         .line1 {
-            width: $lineWidth / 4;
+            width: math.div($lineWidth, 4);
         }
 
         .line2 {
-            width: $lineWidth / 2;
+            width: math.div($lineWidth, 2);
         }
     }
 }
