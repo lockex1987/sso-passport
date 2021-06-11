@@ -19,7 +19,6 @@
 
         "CV": "readonly",
         "noti": "readonly",
-        "Datatable": "readonly",
         "Pagi": "readonly",
         "CommonUtils": "readonly"
     },
