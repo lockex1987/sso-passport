@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+
+// Chỗ validate của Laravel vẫn cần cái này
 return [
 
     /*
@@ -126,7 +128,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug(env('APP_NAME', 'laravel'), '_') . '_session'
     ),
 
     /*

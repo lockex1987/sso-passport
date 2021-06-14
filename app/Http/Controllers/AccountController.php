@@ -25,6 +25,7 @@ class AccountController extends Controller
             'email' => 'required|email',
             'phone' => 'max:20', // phone
             // TODO: Validate định dạng bằng mimes vẫn bị tấn công
+            // Không up được file PHP nhưng vẫn up được file HTML
             'avatar' => 'mimes:png,jpg,jpeg,gif|max:2048'
         ]);
 
